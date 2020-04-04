@@ -5,6 +5,7 @@ import API from "./utils/API.js";
 import Table from "./components/Table/index.js";
 import "./App.css";
 
+
 class App extends React.Component {
   state = {
     results: [],
@@ -25,6 +26,7 @@ class App extends React.Component {
   }
 
   handleInputChange = e => {
+  // preventing user from entering employee name with capital letters 
     const { name, value } = e.target;
     this.setState({
       [name]: value.toLowerCase()
@@ -43,6 +45,7 @@ class App extends React.Component {
               <input
                 type="text"
                 name="search"
+                placeholder="Search by Name"
                 onChange={this.handleInputChange}
                 value={this.state.search}
               />
@@ -50,23 +53,29 @@ class App extends React.Component {
           </form>
         </div>
         <div className="row">
-          <div className="col">
+          <div className="col" size="md-3">
             <table className="table">
               <thead>
                 <tr>
-                  <th idName="th1">Name</th>
-                  <th idName="th2">Email</th>
-                  <th idName="th3">Phone</th>
-                  <th idName="th4">DOB</th>
+                  <th>Photo</th>
+                  <th>
+                    Name
+                    <button> ⬇️</button>
+                  </th>
+                  <th>Email</th>
+                  <th>Phone</th>
+                  <th>DOB</th>
                 </tr>
               </thead>
               <tbody>
+              {/* filtering employee based on search input */}
                 {this.state.results
                   .filter(employee =>
                     employee.fullname.toLowerCase().includes(this.state.search)
                   )
                   .map(result => (
                     <Table
+                      photo={result.image}
                       name={result.fullname}
                       email={result.email}
                       phone={result.phone}
