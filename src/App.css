@@ -1,6 +1,29 @@
-.App {
-  text-align: center;
+.thead{
+  margin-left: 14%;
+  align-content: center;
 }
+#th1{
+  padding-left: 13%;
+}
+#th2{
+  padding-left: 13%;
+}
+#th3{
+  padding-left: 13;
+}
+
+/* .table {
+  align-content: center;
+  height: 6%;
+  overflow-y: auto;
+  margin-top: 2%;
+  margin-left: 14%;
+} */
+
+
+/* .App {
+  text-align: center;
+} */
 /* 
 .App-logo {
   height: 40vmin;
