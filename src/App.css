@@ -1,12 +1,14 @@
 .form-control{
   margin-left: 7%;
-  padding-right: 22%;
+  padding-right: 18%;
   border: 2px solid #99dddd;
   font-weight: bold;
   color: rgb(37, 37, 136);
 }
 button{
   border: transparent;
+  padding: 0;
+  margin-left: 5%;
 }
 table{
   margin-top: 1%;

@@ -6,7 +6,6 @@ import Table from "./components/Table/index.js";
 import "./App.css";
 
 class App extends React.Component {
-
   state = {
     results: [],
     search: ""
@@ -22,20 +21,38 @@ class App extends React.Component {
         dob: moment(user.dob.date).format("MM/DD/YYYY"),
         id: user.registered.date
       }));
-      const sortname = users.sort((a, b)=> a.fullname.localeCompare(b.fullname))
-      this.setState({ results : sortname });
-    })
+      const sortname = users.sort((a, b) =>
+        a.fullname.localeCompare(b.fullname)
+      );
+      this.setState({ results: sortname });
+    });
   }
 
-  // changeSort = () => {
-  //   sortDefault = this.state.sort.fullname.sort();
-  //   this.setState({
-  //     sort : sortName
-  //   })
-  // }
+  // function to handle on click event of up arrow(sort names A-Z)
+  onSortUp = () => {
+    const sortUp = this.state.results.sort((a, b) =>
+      a.fullname.localeCompare(b.fullname)
+    );
 
+    this.setState({
+      results: sortUp
+    });
+  };
+
+  // function to handle on click event of down arrow(sort names Z-A)
+  onSortDown = () => {
+    const sortDown = this.state.results.sort((a, b) =>
+      b.fullname.localeCompare(a.fullename)
+    );
+
+    this.setState({
+      results: sortDown
+    });
+  };
+
+  // function to handle search input
   handleInputChange = e => {
-  // preventing user from entering employee name with capital letters 
+    // preventing user from entering employee name with capital letters
     const { name, value } = e.target;
     this.setState({
       [name]: value.toLowerCase()
@@ -69,9 +86,17 @@ class App extends React.Component {
                 <tr>
                   <th>Photo</th>
                   <th>
-                    <button onClick={this.onSortUp}><span role="img" aria-label="UpArrow">⬆️</span></button>
                     Name
-                    <button onClick={this.onSortDown}> <span role="img" aria-label="DownArrow">⬇️</span></button>
+                    <button onClick={this.onSortUp}>
+                      <span role="img" aria-label="UpArrow" idName="upBtn">
+                        ⬆️
+                      </span>
+                    </button>
+                    <button onClick={this.onSortDown}>
+                      <span role="img" aria-label="DownArrow" idName="downBtn">
+                        ⬇️
+                      </span>
+                    </button>
                   </th>
                   <th>Email</th>
                   <th>Phone</th>
@@ -79,7 +104,7 @@ class App extends React.Component {
                 </tr>
               </thead>
               <tbody>
-              {/* filtering employee based on search input */}
+                {/* filtering employee based on search input */}
                 {this.state.results
                   .filter(employee =>
                     employee.fullname.toLowerCase().includes(this.state.search)
