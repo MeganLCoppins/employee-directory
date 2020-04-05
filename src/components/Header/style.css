@@ -2,8 +2,9 @@
     font-size: 60px;
     text-align: center;
     font-weight: bold;
-    color: rgb(37, 37, 136);
-    padding: 4%;
-    margin-bottom: 1%;
-    background-image: linear-gradient(to bottom, #6666ff 0%, #ccffff 100%);
+    color: white;
+    padding: 2%;
+    margin-bottom: 2%;
+     background-image: linear-gradient(to bottom, #A5A4CB 0%, #8989BB
+     100%);
 }
