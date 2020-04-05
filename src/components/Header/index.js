@@ -6,7 +6,7 @@ import "./style.css";
 function Header() {
   return (
     <header className="header">
-      <h1>List of Employees</h1>
+      <h1>Employee Directory</h1>
     </header>
   );
 }

@@ -1,8 +1,13 @@
-.form-group{
-  border: 2px solid black;
-  margin-left: 10%;
+.form-control{
+  margin-left: 7%;
+  padding-right: 22%;
+  border: 2px solid #99dddd;
+  font-weight: bold;
+  color: rgb(37, 37, 136);
 }
 button{
-  margin-left: 5%;
   border: transparent;
+}
+table{
+  margin-top: 1%;
 }

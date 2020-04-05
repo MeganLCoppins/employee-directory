@@ -5,8 +5,8 @@ import API from "./utils/API.js";
 import Table from "./components/Table/index.js";
 import "./App.css";
 
-
 class App extends React.Component {
+
   state = {
     results: [],
     search: ""
@@ -19,11 +19,20 @@ class App extends React.Component {
         image: user.picture.medium,
         email: user.email,
         phone: user.phone,
-        dob: moment(user.dob.date).format("MM/DD/YYYY")
+        dob: moment(user.dob.date).format("MM/DD/YYYY"),
+        id: user.registered.date
       }));
-      this.setState({ results: users });
-    });
+      const sortname = users.sort((a, b)=> a.fullname.localeCompare(b.fullname))
+      this.setState({ results : sortname });
+    })
   }
+
+  // changeSort = () => {
+  //   sortDefault = this.state.sort.fullname.sort();
+  //   this.setState({
+  //     sort : sortName
+  //   })
+  // }
 
   handleInputChange = e => {
   // preventing user from entering employee name with capital letters 
@@ -45,7 +54,8 @@ class App extends React.Component {
               <input
                 type="text"
                 name="search"
-                placeholder="Search by Name"
+                className="form-control"
+                placeholder="Search By Name"
                 onChange={this.handleInputChange}
                 value={this.state.search}
               />
@@ -59,8 +69,9 @@ class App extends React.Component {
                 <tr>
                   <th>Photo</th>
                   <th>
+                    <button onClick={this.onSortUp}><span role="img" aria-label="UpArrow">⬆️</span></button>
                     Name
-                    <button> ⬇️</button>
+                    <button onClick={this.onSortDown}> <span role="img" aria-label="DownArrow">⬇️</span></button>
                   </th>
                   <th>Email</th>
                   <th>Phone</th>
@@ -80,6 +91,8 @@ class App extends React.Component {
                       email={result.email}
                       phone={result.phone}
                       dob={result.dob}
+                      id={result.id}
+                      key={result.id}
                     />
                   ))}
               </tbody>
