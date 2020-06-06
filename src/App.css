@@ -13,3 +13,19 @@ button{
 table{
   margin-top: 2%;
 }
+#tableDiv{
+  overflow-x: scroll;
+  margin-right: 2%;
+  margin-left: 2%;
+}
+form{
+  margin-left: 2%;
+}
+#container{
+  overflow-x: hidden;
+}
+@media screen and (max-width: 500px){
+  form {
+    margin-top: 3%;
+  }
+}

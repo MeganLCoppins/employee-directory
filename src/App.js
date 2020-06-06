@@ -42,7 +42,7 @@ class App extends React.Component {
   // function to handle on click event of down arrow(sort names Z-A)
   onSortDown = () => {
     const sortDown = this.state.results.sort((a, b) =>
-      b.fullname.localeCompare(a.fullename)
+      b.fullname.localeCompare(a.fullname)
     );
 
     this.setState({
@@ -61,11 +61,11 @@ class App extends React.Component {
 
   render() {
     return (
-      <div className="container">
+      <div id="container">
         <div>
           <Header></Header>
         </div>
-        <div className="row">
+        <div className="row" id="form">
           <form className="form-inline">
             <div className="form-group">
               <input
@@ -80,7 +80,7 @@ class App extends React.Component {
           </form>
         </div>
         <div className="row">
-          <div className="col" size="md-3">
+          <div className="col" id="tableDiv" size="md-3">
             <table className="table">
               <thead>
                 <tr>
@@ -88,12 +88,12 @@ class App extends React.Component {
                   <th>
                     Name
                     <button onClick={this.onSortUp}>
-                      <span role="img" aria-label="UpArrow" idName="upBtn">
+                      <span role="img" aria-label="UpArrow" idname="upBtn">
                         ⬆️
                       </span>
                     </button>
                     <button onClick={this.onSortDown}>
-                      <span role="img" aria-label="DownArrow" idName="downBtn">
+                      <span role="img" aria-label="DownArrow" idname="downBtn">
                         ⬇️
                       </span>
                     </button>

@@ -3,9 +3,7 @@ import React from "react";
 function Table(props){
     return (
         <tr>
-            {/* <td>{props.image}</td> */}
-            <td>
-                <img src={props.photo} alt={props.name}/></td>
+            <td><img src={props.photo} alt={props.name}/></td>
             <td>{props.name}</td>
             <td>{props.email}</td>
             <td>{props.phone}</td>
